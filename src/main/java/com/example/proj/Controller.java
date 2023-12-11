@@ -6,11 +6,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
     public List<String> userList = new ArrayList<String>();
+    public Admin admin;
+    public Member member;
+
+    public ArrayList<Team> Teams = new ArrayList<>();
+    public ArrayList<Member> Members = new ArrayList<>();
+    public ArrayList<Project> Projects = new ArrayList<>();
+    public ArrayList<Machine> Machines = new ArrayList<>();
+
     @FXML
     private TabPane mainTabPane;
 
@@ -29,7 +38,7 @@ public class Controller {
     @FXML
     private Tab teamsTab;
     @FXML
-    private ListView teamsListView;
+    private ListView<String> teamsListView;
     @FXML
     private TextField newTeamBox;
     @FXML
@@ -37,7 +46,7 @@ public class Controller {
     @FXML
     private Button addToTeamButton;
     @FXML
-    private ListView membersListView;
+    private ListView<String> membersListView;
     @FXML
     private TextField memberNameBox;
     @FXML
@@ -52,7 +61,7 @@ public class Controller {
     @FXML
     private Tab projectsTab;
     @FXML
-    private ListView projectListView;
+    private ListView<String> projectListView;
     @FXML
     private TextField newprojectNameBox;
     @FXML
@@ -62,7 +71,7 @@ public class Controller {
     @FXML
     private Button assignTeamButton;
     @FXML
-    private ListView machinesListView;
+    private ListView<String> machinesListView;
     @FXML
     private TextField newMachineBox;
     @FXML
@@ -82,7 +91,7 @@ public class Controller {
     @FXML
     private Tab mTeamsTab;
     @FXML
-    private ListView myTeamsListView;
+    private ListView<String> myTeamsListView;
 
     /* End Member-Teams Tab*/
 
@@ -90,7 +99,7 @@ public class Controller {
     @FXML
     private Tab mProjectsTab;
     @FXML
-    private ListView myProjectListView;
+    private ListView<String> myProjectListView;
     @FXML
     private DatePicker pDatePicker;
     @FXML
@@ -98,7 +107,7 @@ public class Controller {
     @FXML
     private TextField memberToBox;
     @FXML
-    private ListView memberMachineListView;
+    private ListView<String> memberMachineListView;
 
     @FXML
     private Button reserveButton;
@@ -123,6 +132,7 @@ public class Controller {
             VisTab.setDisable(false);
             // initialize
 
+
         } else if (userList.contains(username + ":" + pass + "@Member")) {
             StatusLabel.setText("Logged in, As a member");
             projectsTab.setDisable(true);
@@ -136,5 +146,54 @@ public class Controller {
     @FXML
     private void initialize() throws Exception{
         userList = Utility.readFileAsArrayList("C:\\Users\\ccm-stu\\Desktop\\ggg\\swe206-project\\src\\main\\java\\com\\example\\users.txt");
+        for (int i = 1; i < 4; i++){
+            Teams.add(new Team(i, "Team" + i));
+            Members.add(new Member("Pr" + i));
+            Projects.add(new Project("Hello"));
+            Machines.add(new Machine(i, "M" + i));
+        }
+    }
+
+
+    @FXML
+    private void createNewTeam(ActionEvent actionEvent){
+        String tn = newTeamBox.getText();
+        teamsListView.getItems().add(tn);
+
+    }
+
+    @FXML
+    public void addNewMember(ActionEvent actionEvent) {
+        membersListView.getItems().add(memberNameBox.getText());
+    }
+
+    @FXML
+    public void addMemberToTeam(ActionEvent actionEvent) {
+        String member = membersListView.getSelectionModel().getSelectedItem();
+        String team = teamsListView.getSelectionModel().getSelectedItem();
+    }
+
+    @FXML
+    public void Reserve(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void assignTeam(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void assginMachine(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void addMachine(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void addNewProject(ActionEvent actionEvent) {
+    }
+
+    public void ShowMessageBox(String msg){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Info");
+        alert.setHeaderText(msg);
+        alert.show();
     }
 }
