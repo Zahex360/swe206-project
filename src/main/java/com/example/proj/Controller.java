@@ -109,7 +109,8 @@ public class Controller {
     }
     @FXML
     public void assginMachine(ActionEvent actionEvent) {
-        mDatePicker.getValue();
+        Time time = new Time(mDatePicker.getValue(), Integer.parseInt(fromHourBox.getText()), Integer.parseInt(toHourBox.getText()));
+
     }
 
     @FXML

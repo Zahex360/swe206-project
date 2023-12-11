@@ -5,9 +5,10 @@ public class Time {
     private int endTime;
     private LocalDate date;
 
-    public Time(int startTime, int endTime) {
+    public Time(LocalDate date, int startTime, int endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
+        this.date = date;
     }
 
     public int getStartTime() {
