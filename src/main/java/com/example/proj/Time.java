@@ -1,5 +1,5 @@
 package com.example.proj;
-import java.util.Date;
+import java.time.LocalDate;
 public class Time {
     private int startTime;
     private int endTime;

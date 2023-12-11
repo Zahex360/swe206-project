@@ -109,7 +109,8 @@ public class Controller {
     }
     @FXML
     public void assginMachine(ActionEvent actionEvent) {
-        mDatePicker.getValue()
+        mDatePicker.getValue();
+
     }
 
     @FXML
@@ -196,7 +197,7 @@ public class Controller {
             mTeamsTab.setDisable(false);
 
             // initialize
-            member = new Member(username, "", "");
+            member = new Member(username);
             admin.assignMemberToTeam(member, Teams.get(0));
             admin.assignMemberToTeam(member, Teams.get(1));
             Teams.get(0).setProject(Projects.get(0));
@@ -227,8 +228,12 @@ public class Controller {
 
     @FXML
     private void createNewTeam(ActionEvent actionEvent){
-        String tn = newTeamBox.getText();
-        teamsListView.getItems().add(tn);
+        String name = teamNameBox.getText();
+        Team newTeam = new Team(Teams.size()+1, name);
+        Teams.add(newTeam);
+        teamsListView.getItems().add(newTeam.showTeamInfo());
+
+
 
     }
 

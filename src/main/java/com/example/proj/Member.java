@@ -14,6 +14,11 @@ public class Member {
         this.AssociatedTeams = new ArrayList<Team>();
     }
 
+    public Member(String name) {
+        this.name = name;
+
+    }
+
     public String getName() {
         return name;
     }
@@ -22,22 +27,21 @@ public class Member {
         return Email;
     }
 
-    public String getResearchInterrest(){return researchInterrest;}
+    public String getResearchInterrest(){
+        return researchInterrest;
+    
+    }
     public void setName(String name) {
         this.name = name;
     }
 
-    public ArrayList<Team> getNumberOfAssociatedTeams() {
-        return AssociatedTeams;
-    }
-
-    public void setNumberOfAssociatedTeams(ArrayList<Team> AssociatedTeams) {
-        this.AssociatedTeams = AssociatedTeams;
+    public int getNumberOfAssociatedTeams() {
+        return AssociatedTeams.size();
     }
 
 
     // public void assignSelectedMember(Message message) {
-
+        //Usless so far .. 12/12/2023, 12:05 A.M. 
     // }
 
     public void getInfo() {
@@ -68,18 +72,34 @@ public class Member {
         return AssociatedTeams; 
     }
     
-    public void assessActivity() {
-        if(AssociatedTeams.size() == 3){
-            System.out.println("Member is highly Active");
-        }
-        else if(AssociatedTeams.size() == 2){
-            System.out.println("Member is Active");
-        }
-        else if(AssociatedTeams.size() == 1){
-            System.out.println("Member is less Active");
-        }
-        else{
-            System.out.println("Member is not Active");
-        }
+    public String assessActivity() {
+
+        switch(AssociatedTeams.size()){
+            case 3:
+               return "Member is highly Active";
+                
+            case 2:
+                return "Member is Active";
+                
+            case 1:
+               return "Member is less Active";
+                
+            default:
+                return "Member is not Active";
+                
+        } //More Beautiful with Switch ^_^ .
+        
+        // if(AssociatedTeams.size() == 3){
+        //     System.out.println("Member is highly Active");
+        // }
+        // else if(AssociatedTeams.size() == 2){
+        //     System.out.println("Member is Active");
+        // }
+        // else if(AssociatedTeams.size() == 1){
+        //     System.out.println("Member is less Active");
+        // }
+        // else{
+        //     System.out.println("Member is not Active");
+        // }
     }
 }

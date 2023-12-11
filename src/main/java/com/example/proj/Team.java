@@ -66,15 +66,20 @@ public class Team {
         return project;
     }
 
-    public void showTeamInfo() {
-        System.out.println("Team Number: " + teamNumber);
-        System.out.println("Team Title: " + teamTitle);
-        System.out.println("Members: " + members);
-        System.out.println("Project: " + project);  
-    }
+    public String showTeamInfo() {
+        String s= this.teamTitle+ " team: ";
 
+        for(int i=0; i<members.size(); i++){
+            if(i<members.size()-1)
+                    s+=members.get(i)+", ";
+            else
+                s+=members.get(i);
+
+        }
+        return s;
+    }
     public boolean verifyAvailability() {
-        return true;     
+        return true;
     }
 }
 
