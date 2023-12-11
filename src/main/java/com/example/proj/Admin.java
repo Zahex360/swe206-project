@@ -40,8 +40,7 @@ public class Admin {
     public void assignMemberToTeam(Member member, Team team) {
         if(team.isAvailable() && member.isEligible())
             team.addMember(member);
-        else
-            member.displayErrorMessage();
+
     }
 
     public String notifyAcceptance() {
