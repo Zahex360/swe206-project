@@ -121,6 +121,7 @@ public class Controller {
     /* End Admin-VisTab Tab*/
 
     public void userLogin(ActionEvent actionEvent) {
+        admin = new Admin();
         String username = EmailBox.getText();
         String pass = PasswordBox.getText();
         if (userList.contains(username + ":" + pass + "@Admin")){
@@ -131,6 +132,10 @@ public class Controller {
             teamsTab.setDisable(false);
             VisTab.setDisable(false);
             // initialize
+            admin = new Admin();
+            for (Team t : Teams) {
+                teamsListView.getItems().add(t.getTeamTitle());
+            }
 
 
         } else if (userList.contains(username + ":" + pass + "@Member")) {
@@ -141,6 +146,16 @@ public class Controller {
             mProjectsTab.setDisable(false);
             mTeamsTab.setDisable(false);
             // initialize
+            member = new Member(username);
+            admin.assignMemberToTeam(member, Teams.get(0));
+            admin.assignMemberToTeam(member, Teams.get(1));
+            Teams.get(0).setProject(Projects.get(0));
+            Teams.get(1).setProject(Projects.get(1));
+            for (Team t : member.showAssociatedTeams()){
+                myTeamsListView.getItems().add(t.getTeamTitle());
+                myProjectListView.getItems().add(t.getProject().getProjectName());
+
+            }
         }
     }
     @FXML

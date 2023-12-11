@@ -50,9 +50,9 @@ public class Member {
         }
     }
 
-    // public void selectMember() {
-        
-    // }
+     public void addTeam(Team team) {
+        AssociatedTeams.add(team);
+     }
 
     public ArrayList<Team> showAssociatedTeams() {
         return AssociatedTeams; 
