@@ -31,6 +31,7 @@ public class Schedule{
     }
     public boolean verifyTime(Reservation reservation, Project project) {
         String projectName = project.getProjectName();
+        System.out.println(reservation.getTime().getDate().toString());
         if (!availableTimes.containsKey(projectName))
             return false;
         // First Check validate of the wanted time:

@@ -89,23 +89,18 @@ public class Controller {
     @FXML
     public void assignTeam(ActionEvent actionEvent) {
         String name = teamNameBox.getText();
-        Project project = new Project("-1@DEV_USE");
         for (Project p : Projects){
-            if (p.getProjectName().equals(projectsTab.getText())){
-                project = p;
-                break;
+            if (p.getProjectName().equals(projectListView.getSelectionModel().getSelectedItem())){
+                for (Team t : Teams){
+                    if (t.getTeamTitle().equals(name)){
+                        t.setProject(p);
+                        return;
+                    }
+                }
             }
         }
-       if (project.getProjectName().equals("-1@DEV_USE")){
-           ShowMessageBox("Make sure that you are selecting a project.");
-       }
 
-        for (Team t : Teams){
-            if (t.getTeamTitle().equals(name)){
-                t.setProject(project);
-            }
-        }
-        ShowMessageBox("Not a valid team name.");
+        ShowMessageBox("Make sure that your selection is valid.");
     }
     @FXML
     public void assginMachine(ActionEvent actionEvent) {
@@ -133,7 +128,7 @@ public class Controller {
     public void addNewProject(ActionEvent actionEvent) {
         Project project = new Project(newprojectNameBox.getText());
         Projects.add(project);
-        projectListView.getItems().add(project.getProjectInfo());
+        projectListView.getItems().add(project.getProjectName());
     }
 
     /* End Admin-projects Tab*/
@@ -220,7 +215,9 @@ public class Controller {
             admin.assignMemberToTeam(member, Teams.get(1));
             Teams.get(0).setProject(Projects.get(0));
             Teams.get(1).setProject(Projects.get(1));
-
+            Projects.get(0).addAvailableMachine(Machines.get(0));
+            Time ti = new Time(java.time.LocalDate.of(2023, 12,12), 1, 24);
+            admin.assignMachineTimeToProject(Machines.get(0), Projects.get(0), ti);
             for (Team t : member.showAssociatedTeams()){
 
                 myTeamsListView.getItems().add(t.showTeamInfo());
@@ -286,12 +283,12 @@ public class Controller {
     @FXML
     public void Reserve(ActionEvent actionEvent) {
 
-        Time time = new Time(mDatePicker.getValue(), Integer.parseInt(fromHourBox.getText()), Integer.parseInt(toHourBox.getText()));
+        Time time = new Time(pDatePicker.getValue(), Integer.parseInt(memberFromBox.getText()), Integer.parseInt(memberToBox.getText()));
         for (Project p : Projects){
             if (p.getProjectName().equals(myProjectListView.getSelectionModel().getSelectedItem())){
                 for (Machine m : Machines){
                     if (m.getSpecialization().equals(memberMachineListView.getSelectionModel().getSelectedItem())){
-                        member.reserveMachine(m, time, p);
+                        ShowMessageBox(member.reserveMachine(m, time, p));
                     }
                 }
             }
@@ -308,9 +305,9 @@ public class Controller {
 
     @FXML
     public void visActivity(ActionEvent actionEvent) {
-
+        admin.setMembers(this.Members);
         if(admin.getMostActiveMember() == null){
-            ShowMessageBox("No Active Member Yet!");
+            MAMLabel.setText("No Active Member Yet!");
             return;
         }
         else{
@@ -318,7 +315,7 @@ public class Controller {
         }
 
         if(admin.getMostUtilizedMachine() == null){
-            ShowMessageBox("No Activie Machine Yet!");
+            MUMLabel.setText("No Activie Machine Yet!");
             return;
         }
         else{
@@ -326,7 +323,7 @@ public class Controller {
         }
 
         if(admin.getMostActiveProject() == null){
-            ShowMessageBox("No Active Project Yet!");
+            MAPLabel.setText("No Active Project Yet!");
             return;
         }
         else{

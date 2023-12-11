@@ -108,17 +108,17 @@
                               <Font name="System Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="MAMLabel" layoutX="301.0" layoutY="72.0" prefHeight="50.0" prefWidth="219.0">
+                        <Label fx:id="MAMLabel" layoutX="301.0" layoutY="72.0" prefHeight="50.0" prefWidth="416.0">
                            <font>
                               <Font name="Times New Roman Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="MUMLabel" layoutX="301.0" layoutY="142.0" prefHeight="50.0" prefWidth="219.0">
+                        <Label fx:id="MUMLabel" layoutX="301.0" layoutY="142.0" prefHeight="50.0" prefWidth="417.0">
                            <font>
                               <Font name="Times New Roman Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="MAPLabel" layoutX="301.0" layoutY="216.0" prefHeight="50.0" prefWidth="219.0">
+                        <Label fx:id="MAPLabel" layoutX="301.0" layoutY="216.0" prefHeight="50.0" prefWidth="415.0">
                            <font>
                               <Font name="Times New Roman Bold" size="21.0" />
                            </font>

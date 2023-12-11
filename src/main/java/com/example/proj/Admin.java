@@ -26,9 +26,11 @@ public class Admin {
         }
         projects.add(new Project("Project-"+newProjNum));
     }
-
+public void setMembers(ArrayList<Member>m){
+    members = m;
+}
     public void assignMachineTimeToProject(Machine machine,  Project project, Time time) {
-        ArrayList<Machine> assignedMachines = project.getReservedMachines();
+        ArrayList<Machine> assignedMachines = project.getavailableMachines();
 
         for (int i = 0; i < assignedMachines.size(); i++){
             if(machine.getMachineID() == assignedMachines.get(i).getMachineID()){
@@ -69,7 +71,7 @@ public class Admin {
 
 
     public Member getMostActiveMember(){
-        Member mostActiveMember = null;
+        Member mostActiveMember = new Member("");
         for (int i = 0; i < members.size(); i++){
             if (members.get(i).showAssociatedTeams().size() > mostActiveMember.showAssociatedTeams().size()){
                 mostActiveMember = members.get(i);

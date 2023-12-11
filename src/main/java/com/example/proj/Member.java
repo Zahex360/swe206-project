@@ -16,7 +16,7 @@ public class Member {
 
     public Member(String name) {
         this.name = name;
-
+        this.AssociatedTeams = new ArrayList<Team>();
     }
 
     public String getName() {

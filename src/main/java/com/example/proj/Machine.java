@@ -47,6 +47,7 @@ public class Machine {
     public boolean validateMachineTime(Reservation reservation, Project project) {
         if (this.timeTable.verifyTime(reservation, project)){
             // Reserve.
+            System.out.println("REeached");
             this.timeTable.updateSchedule(reservation.getTime(), project.getProjectName());
             // Update record. Here
             // Reserved
