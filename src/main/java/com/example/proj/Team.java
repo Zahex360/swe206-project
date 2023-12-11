@@ -50,7 +50,7 @@ public class Team {
 
     public void addMember(Member member) {
         members.add(member);
-        
+
     }
     
     public void removeMember(Member member) {

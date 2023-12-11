@@ -32,9 +32,7 @@ public class Admin {
 
         for (int i = 0; i < assignedMachines.length; i++){
             if(machine.getMachineID() == assignedMachines[i].getMachineID()){
-
-//                assignedMachines[i].getTimeTable().;
-//                Not Completed
+                assignedMachines[i].getTimeTable().setAvailableTime(time, project.getProjectName());
             }
         }
     }
@@ -46,28 +44,17 @@ public class Admin {
             member.displayErrorMessage();
     }
 
-    public void notifyAcceptance() {
-        
+    public String notifyAcceptance() {
+        return "Your Operation Have been done Successfully";
     }
 
-    public void notifyFullness() {
-        
-    }
-
-    public void notifyRejection() {
-        
-    }
-
-    public void showFailure() {
-        
+    public String notifyFullness() {
+        return "Sorry! The Number of Machines/Members Has Reached the Limit!, You Cannot Add More!";
     }
 
     public void showPerformance() {
         
     }
-
-    public void updateMachineTime(Machine machine, Time time) {
-        
-    }
+    
 }
 
