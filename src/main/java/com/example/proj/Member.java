@@ -43,7 +43,9 @@ public class Member {
 
     public void reserveMachine(Machine machine, Time time, Project project, Record record) {
         Reservation reservation = new Reservation(11, time, this);
-        machine.validateMachineTime(reservation, project);
+        if (machine.validateMachineTime(reservation, project)){
+
+        }
     }
 
     public void selectMember() {

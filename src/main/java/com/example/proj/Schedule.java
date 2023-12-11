@@ -19,7 +19,7 @@ public class Schedule{
             reservedTimes.add(assignedTime);
         }
     }
-    public void addAvailableTime(Time time, String projectName){
+    public void setAvailableTime(Time time, String projectName){
         var rTime = availableTimes.stream().filter(assignedTime1 -> assignedTime1.getProjectName().equals(projectName)).toList();
         if (rTime.size() == 1){
             rTime.get(0).addTime(time);
@@ -27,6 +27,7 @@ public class Schedule{
             var tt = new ArrayList<Time>();
             tt.add(time);
             AssignedTime assignedTime = new AssignedTime(tt, projectName);
+            availableTimes.remove(0);
             availableTimes.add(assignedTime);
         }
     }
