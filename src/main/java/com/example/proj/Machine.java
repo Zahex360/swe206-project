@@ -43,7 +43,11 @@ public class Machine {
         return true; 
     }
 
-    public void validateMachineTime(Reservation reservation, Project project) {
-
+    public boolean validateMachineTime(Reservation reservation, Project project) {
+        if (this.timeTable.verifyTime(reservation, project)){
+            // Reserve.
+            this.timeTable.updateSchedule(reservation.getTime(), project.getProjectName());
+        }
+return  true;
     }
 }
