@@ -109,13 +109,23 @@ public class Controller {
     }
     @FXML
     public void assginMachine(ActionEvent actionEvent) {
+<<<<<<< HEAD
         mDatePicker.getValue();
+=======
+>>>>>>> d34baeba13ea792b242fbdb3455810ee1409921a
 
     }
 
     @FXML
     public void addMachine(ActionEvent actionEvent) {
+<<<<<<< HEAD
 
+=======
+        int id = Machines.size()+1;
+        Machine machine = new Machine(id,newMachineBox.getText());
+        Machines.add(machine);
+        machinesListView.getItems().add(machine.getInfo());
+>>>>>>> d34baeba13ea792b242fbdb3455810ee1409921a
     }
     @FXML
     public void addNewProject(ActionEvent actionEvent) {
@@ -161,6 +171,7 @@ public class Controller {
 
     public void userLogin(ActionEvent actionEvent) {
         admin = new Admin();
+
         String username = EmailBox.getText();
         String pass = PasswordBox.getText();
         if (userList.contains(username + ":" + pass + "@Admin")){
@@ -204,13 +215,16 @@ public class Controller {
             Teams.get(1).setProject(Projects.get(1));
 
             for (Team t : member.showAssociatedTeams()){
+
                 myTeamsListView.getItems().add(t.getTeamTitle());
                 myProjectListView.getItems().add(t.getProject().getProjectName());
+                for (Machine m : t.getProject().getavailableMachines()){
+                    memberMachineListView.getItems().add(m.getInfo());
+                }
+
             }
 
-            for (Machine m : Machines){
-                memberMachineListView.getItems().add(m.getInfo());
-            }
+
 
         }
     }
@@ -254,6 +268,12 @@ public class Controller {
 
     @FXML
     public void Reserve(ActionEvent actionEvent) {
+
+        String currentMachineName = memberMachineListView.getSelectionModel().getSelectedItem().split(" ")[0];
+
+        String currentProjectName = myProjectListView.getSelectionModel().getSelectedItem();
+
+//        admin.assignMachineTimeToProject(member, );
     }
 
 
