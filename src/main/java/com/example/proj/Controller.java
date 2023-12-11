@@ -285,8 +285,8 @@ public class Controller {
 
     @FXML
     public void visActivity(ActionEvent actionEvent) {
-        String mostActiveMember = admin.getMostActiveMember();
-        String mostUtilizedMachine = admin.getMostUtilizedMachine();
+        String mostActiveMember = admin.getMostActiveMember().getName();
+        String mostUtilizedMachine = admin.getMostUtilizedMachine().getInfo();
         String mostActiveProject = admin.getMostActiveProject();
 
         MAMLabel.setText(mostActiveMember);
