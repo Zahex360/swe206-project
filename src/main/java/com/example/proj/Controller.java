@@ -110,7 +110,13 @@ public class Controller {
     @FXML
     public void assginMachine(ActionEvent actionEvent) {
         Time time = new Time(mDatePicker.getValue(), Integer.parseInt(fromHourBox.getText()), Integer.parseInt(toHourBox.getText()));
-
+        for (Project p : Projects){
+            if (p.getProjectName().equals(projectsTab.getText())){
+                for (Machine m : Machines){
+                    if (m.getSpecialization().equals(projectsTab.getText())){}
+                }
+            }
+        }
     }
 
     @FXML
@@ -188,7 +194,7 @@ public class Controller {
             }
 
             for (Machine machine : Machines){
-                machinesListView.getItems().add(machine.getInfo());
+                machinesListView.getItems().add(machine.getSpecialization());
             }
 
             for (Member member : Members){
@@ -219,7 +225,7 @@ public class Controller {
                 myTeamsListView.getItems().add(t.getTeamTitle());
                 myProjectListView.getItems().add(t.getProject().getProjectName());
                 for (Machine m : t.getProject().getavailableMachines()){
-                    memberMachineListView.getItems().add(m.getInfo());
+                    memberMachineListView.getItems().add(m.getSpecialization());
                 }
             }
         }
