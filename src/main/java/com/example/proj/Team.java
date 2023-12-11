@@ -69,10 +69,6 @@ public class Team {
         return project;
     }
 
-    public Machine[] showAvailableMachines() {
-        return new Machine[0]; 
-    }
-
     public void showPerformance() {
     }
 
