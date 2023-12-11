@@ -58,9 +58,6 @@ public class Team {
 
     }
 
-    // public void assessSkills() { 
-    // }
-
     public boolean isAvailable() {
         return true; 
     }
@@ -69,7 +66,7 @@ public class Team {
         return project;
     }
 
-    public void showPerformance() {
+    public void showTeamInfo() {
         System.out.println("Team Number: " + teamNumber);
         System.out.println("Team Title: " + teamTitle);
         System.out.println("Members: " + members);
