@@ -40,9 +40,9 @@ public class Machine {
         this.timeTable = timeTable;
     }
 
-    public boolean isAvailable() {
-        return true; 
-    }
+    // public boolean isAvailable() {
+    //     return true; 
+    // }
 
     public boolean validateMachineTime(Reservation reservation, Project project) {
         if (this.timeTable.verifyTime(reservation, project)){
