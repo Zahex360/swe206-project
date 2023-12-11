@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class Project {
     private String projectName;
     private Team associatedTeam;
-    private ArrayList<Machine> reservedMachines;
+    private ArrayList<Machine> reservedMachines = new ArrayList<>();
+    private ArrayList<Machine> availableMachines =  new ArrayList<>();
 
     public Project(String projectName) {
         this.projectName = projectName;
+        associatedTeam = new Team(-1, "");
         
     }
 
@@ -45,7 +47,12 @@ public class Project {
  
         return reservedMachines;
     }
-
+    public void addAvailableMachine(Machine machine){
+        availableMachines.add(machine);
+    }
+    public ArrayList<Machine> getavailableMachines(){
+        return availableMachines;
+    }
     
     public Machine showMostUtilizedMachine() {
         Machine mostUtilizedMachine = null;
@@ -56,5 +63,9 @@ public class Project {
             }
         }
         return mostUtilizedMachine;
+    }
+
+    public String getProjectInfo(){
+        return this.projectName + " : " + this.associatedTeam.getTeamTitle();
     }
 }

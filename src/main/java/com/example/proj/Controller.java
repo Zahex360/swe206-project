@@ -85,6 +85,25 @@ public class Controller {
     @FXML
     private Button assignMToteamButton;
 
+
+    @FXML
+    public void assignTeam(ActionEvent actionEvent) {
+        String name = teamNameBox.getText();
+    }
+    @FXML
+    public void assginMachine(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void addMachine(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void addNewProject(ActionEvent actionEvent) {
+        Project project = new Project(newprojectNameBox.getText());
+        Projects.add(project);
+        projectListView.getItems().add(project.getProjectInfo());
+    }
+
     /* End Admin-projects Tab*/
 
     /* Member-teams Tab*/
@@ -159,7 +178,7 @@ public class Controller {
     }
     @FXML
     private void initialize() throws Exception{
-        userList = Utility.readFileAsArrayList("C:\\Users\\ccm-stu\\Desktop\\ggg\\swe206-project\\src\\main\\java\\com\\example\\users.txt");
+        userList = Utility.readFileAsArrayList(System.getProperty("user.dir") +"\\src\\main\\java\\com\\example\\proj\\users.txt");
         for (int i = 1; i < 4; i++){
             Teams.add(new Team(i, "Team" + i));
             Members.add(new Member("Pr" + i));
@@ -190,19 +209,7 @@ public class Controller {
     @FXML
     public void Reserve(ActionEvent actionEvent) {
     }
-    @FXML
-    public void assignTeam(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void assginMachine(ActionEvent actionEvent) {
-    }
 
-    @FXML
-    public void addMachine(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void addNewProject(ActionEvent actionEvent) {
-    }
 
     public void ShowMessageBox(String msg){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
