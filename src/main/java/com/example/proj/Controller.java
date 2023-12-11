@@ -89,14 +89,32 @@ public class Controller {
     @FXML
     public void assignTeam(ActionEvent actionEvent) {
         String name = teamNameBox.getText();
+        Project project = new Project("-1@DEV_USE");
+        for (Project p : Projects){
+            if (p.getProjectName().equals(projectsTab.getText())){
+                project = p;
+                break;
+            }
+        }
+       if (project.getProjectName().equals("-1@DEV_USE")){
+           ShowMessageBox("Make sure that you are selecting a project.");
+       }
+
+        for (Team t : Teams){
+            if (t.getTeamTitle().equals(name)){
+                t.setProject(project);
+            }
+        }
+        ShowMessageBox("Not a valid team name.");
     }
     @FXML
     public void assginMachine(ActionEvent actionEvent) {
-
+        mDatePicker.getValue();
     }
 
     @FXML
     public void addMachine(ActionEvent actionEvent) {
+
         int id = Machines.size()+1;
         Machine machine = new Machine(id,newMachineBox.getText());
         Machines.add(machine);
@@ -141,6 +159,12 @@ public class Controller {
     /* Admin-Vis Tab*/
     @FXML
     private Tab VisTab;
+    @FXML
+    private Label MAMLabel; // Most active member
+    @FXML
+    private Label MUMLabel; // most utilized machine
+    @FXML
+    private Label MAPLabel; // most active project
 
     /* End Admin-VisTab Tab*/
 
@@ -195,11 +219,7 @@ public class Controller {
                 for (Machine m : t.getProject().getavailableMachines()){
                     memberMachineListView.getItems().add(m.getSpecialization());
                 }
-
             }
-
-
-
         }
     }
     @FXML
@@ -270,5 +290,18 @@ public class Controller {
         alert.setTitle("Info");
         alert.setHeaderText(msg);
         alert.show();
+    }
+
+    @FXML
+    public void visActivity(ActionEvent actionEvent) {
+
+        String mostActiveMember = admin.getMostActiveMember().getName();
+        String mostUtilizedMachine = admin.getMostUtilizedMachine().getSpecialization();
+        String mostActiveProject = admin.getMostActiveProject().getProjectInfo();
+
+        MAMLabel.setText(mostActiveMember);
+        MUMLabel.setText(mostUtilizedMachine);
+        MAPLabel.setText(mostActiveProject);
+
     }
 }

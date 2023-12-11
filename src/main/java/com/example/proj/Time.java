@@ -1,8 +1,9 @@
 package com.example.proj;
-import java.util.Date;
+import java.time.LocalDate;
 public class Time {
     private int startTime;
     private int endTime;
+    private LocalDate date;
 
     public Time(int startTime, int endTime) {
         this.startTime = startTime;
@@ -17,6 +18,7 @@ public class Time {
         this.startTime = startTime;
     }
 
+
     public int getEndTime() {
         return endTime;
     }
@@ -26,13 +28,21 @@ public class Time {
     }
 
     public boolean checkConflict(Time other){
-            return !(this.getStartTime() > other.getEndTime() || other.getStartTime() > this.getEndTime());
+            return !(other.date.equals(this.date) && (this.getStartTime() > other.getEndTime() || other.getStartTime() > this.getEndTime()));
     }
 
     public boolean inBetween(Time other){
-        if (other != null){
+        if (other.date.equals(this.date)){
             return (this.getStartTime() > other.getEndTime() && other.getEndTime() > this.getEndTime());
         }
         return false;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }
