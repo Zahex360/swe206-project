@@ -221,11 +221,7 @@ public class Controller {
                 for (Machine m : t.getProject().getavailableMachines()){
                     memberMachineListView.getItems().add(m.getInfo());
                 }
-
             }
-
-
-
         }
     }
     @FXML
@@ -286,5 +282,14 @@ public class Controller {
 
     @FXML
     public void visActivity(ActionEvent actionEvent) {
+
+        String mostActiveMember = admin.getMostActiveMember().getName();
+        String mostUtilizedMachine = admin.getMostUtilizedMachine().getSpecialization();
+        String mostActiveProject = admin.getMostActiveProject().getProjectInfo();
+
+        MAMLabel.setText(mostActiveMember);
+        MUMLabel.setText(mostUtilizedMachine);
+        MAPLabel.setText(mostActiveProject);
+
     }
 }

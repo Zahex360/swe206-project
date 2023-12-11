@@ -54,16 +54,6 @@ public class Project {
         return availableMachines;
     }
     
-    public Machine showMostUtilizedMachine() {
-        Machine mostUtilizedMachine = null;
-        for(int i=0; i<reservedMachines.size(); i++) {
-            //Compare between all and return the highest most utilized machine
-            if(reservedMachines.get(i).getNumberOfUsages() >= reservedMachines.get(i+1).getNumberOfUsages()) {
-                mostUtilizedMachine = reservedMachines.get(i);
-            }
-        }
-        return mostUtilizedMachine;
-    }
 
     public String getProjectInfo(){
         return this.projectName + " : " + this.associatedTeam.getTeamTitle();
