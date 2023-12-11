@@ -109,23 +109,16 @@ public class Controller {
     }
     @FXML
     public void assginMachine(ActionEvent actionEvent) {
-<<<<<<< HEAD
         mDatePicker.getValue();
-=======
->>>>>>> d34baeba13ea792b242fbdb3455810ee1409921a
-
     }
 
     @FXML
     public void addMachine(ActionEvent actionEvent) {
-<<<<<<< HEAD
 
-=======
         int id = Machines.size()+1;
         Machine machine = new Machine(id,newMachineBox.getText());
         Machines.add(machine);
         machinesListView.getItems().add(machine.getInfo());
->>>>>>> d34baeba13ea792b242fbdb3455810ee1409921a
     }
     @FXML
     public void addNewProject(ActionEvent actionEvent) {
@@ -166,6 +159,12 @@ public class Controller {
     /* Admin-Vis Tab*/
     @FXML
     private Tab VisTab;
+    @FXML
+    private Label MAMLabel; // Most active member
+    @FXML
+    private Label MUMLabel; // most utilized machine
+    @FXML
+    private Label MAPLabel; // most active project
 
     /* End Admin-VisTab Tab*/
 
@@ -282,5 +281,9 @@ public class Controller {
         alert.setTitle("Info");
         alert.setHeaderText(msg);
         alert.show();
+    }
+
+    @FXML
+    public void visActivity(ActionEvent actionEvent) {
     }
 }
