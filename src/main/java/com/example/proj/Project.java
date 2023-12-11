@@ -1,8 +1,11 @@
 package com.example.proj;
+
+import java.util.ArrayList;
+
 public class Project {
     private String projectName;
     private Team associatedTeam;
-    private Machine[] reservedMachines;
+    private ArrayList<Machine> reservedMachines;
 
     public Project(String projectName) {
         this.projectName = projectName;
@@ -25,11 +28,11 @@ public class Project {
         this.associatedTeam = associatedTeam;
     }
 
-    public Machine[] getReservedMachines() {
+    public ArrayList<Machine> getReservedMachines() {
         return reservedMachines;
     }
 
-    public void setReservedMachines(Machine[] reservedMachines) {
+    public void setReservedMachines(ArrayList<Machine> reservedMachines) {
         this.reservedMachines = reservedMachines;
     }
 
@@ -38,7 +41,7 @@ public class Project {
         return associatedTeam;
     }
 
-    public Machine[] showReservedMachines() {
+    public ArrayList<Machine> showReservedMachines() {
  
         return reservedMachines;
     }

@@ -3,6 +3,7 @@ public class Machine {
     private int machineID;
     private String specialization;
     private Schedule timeTable;
+    private int numberOfUsages;
 
     public Machine(int machineID, String specialization) {
         this.machineID = machineID;
@@ -52,5 +53,9 @@ public class Machine {
             return true;
         }
         return false;
+    }
+
+    public void increaseNumberOfUsages() {
+        this.numberOfUsages++;
     }
 }

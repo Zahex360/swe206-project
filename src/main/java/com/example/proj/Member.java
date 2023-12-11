@@ -41,6 +41,7 @@ public class Member {
         Reservation reservation = new Reservation(11, time, this);
         if (machine.validateMachineTime(reservation, project)){
             // Has Been Reserved
+            machine.increaseNumberOfUsages();
             return "Successfully reserved.";
         }else {
             return "Can not be reserved.";
@@ -51,12 +52,26 @@ public class Member {
 
     }
 
-    public Team[] showAssociatedTeams() {
-        return new Team[0]; 
+    public ArrayList<Team> showAssociatedTeams() {
+        return AssociatedTeams; 
     }
 
     public Machine[] showAvailableMachines() {
         return new Machine[0]; 
     }
-
+    
+    public void assessActivity() {
+        if(AssociatedTeams.size() == 3){
+            System.out.println("Member is highly Active");
+        }
+        else if(AssociatedTeams.size() == 2){
+            System.out.println("Member is Active");
+        }
+        else if(AssociatedTeams.size() == 1){
+            System.out.println("Member is less Active");
+        }
+        else{
+            System.out.println("Member is not Active");
+        }
+    }
 }
