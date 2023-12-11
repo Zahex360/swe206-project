@@ -16,7 +16,7 @@ public class Record {
         this.machinesReservedTime = machinesReservedTime;
     }
 
-    public void updateRecord(Member member, Machine machine, Time time) {
+    // public void updateRecord(Member member, Machine machine, Time time) {
         
-    }
+    // }
 }

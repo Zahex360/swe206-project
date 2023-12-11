@@ -26,4 +26,12 @@ public class Reservation {
     public void setMember(Member member) {
         this.member = member;
     }
+
+    public int getMachineID() {
+        return machineID;
+    }
+
+    public void setMachineID(int machineID) {
+        this.machineID = machineID;
+    }
 }

@@ -26,11 +26,13 @@ public class Member {
     }
 
 
-    public void assignSelectedMember(Message message) {
+    // public void assignSelectedMember(Message message) {
 
-    }
+    // }
 
     public void getInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Associated Teams: " + AssociatedTeams);
     }
 
     public boolean isEligible() {
@@ -48,9 +50,9 @@ public class Member {
         }
     }
 
-    public void selectMember() {
-
-    }
+    // public void selectMember() {
+        
+    // }
 
     public ArrayList<Team> showAssociatedTeams() {
         return AssociatedTeams; 

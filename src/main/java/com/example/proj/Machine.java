@@ -55,6 +55,10 @@ public class Machine {
         return false;
     }
 
+    public int getNumberOfUsages() {
+        return numberOfUsages;
+    }
+
     public void increaseNumberOfUsages() {
         this.numberOfUsages++;
     }

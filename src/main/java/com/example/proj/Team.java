@@ -58,8 +58,8 @@ public class Team {
 
     }
 
-    public void assessSkills() { 
-    }
+    // public void assessSkills() { 
+    // }
 
     public boolean isAvailable() {
         return true; 
@@ -70,6 +70,10 @@ public class Team {
     }
 
     public void showPerformance() {
+        System.out.println("Team Number: " + teamNumber);
+        System.out.println("Team Title: " + teamTitle);
+        System.out.println("Members: " + members);
+        System.out.println("Project: " + project);  
     }
 
     public boolean verifyAvailability() {
