@@ -154,7 +154,6 @@ public class Controller {
             for (Team t : member.showAssociatedTeams()){
                 myTeamsListView.getItems().add(t.getTeamTitle());
                 myProjectListView.getItems().add(t.getProject().getProjectName());
-
             }
         }
     }
