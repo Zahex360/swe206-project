@@ -31,16 +31,16 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="684.0">
                             <children>
                                 <ListView fx:id="teamsListView" layoutX="14.0" layoutY="30.0" prefHeight="311.0" prefWidth="347.0" />
-                                <ListView layoutX="369.0" layoutY="30.0" prefHeight="309.0" prefWidth="362.0" />
+                                <ListView fx:id="membersListView" layoutX="369.0" layoutY="30.0" prefHeight="309.0" prefWidth="362.0" />
                                 <Label layoutX="14.0" layoutY="5.0" text="Teams:" />
                                 <Label layoutX="369.0" layoutY="7.0" text="Members:" />
-                                <TextField alignment="TOP_CENTER" layoutX="369.0" layoutY="343.0" prefHeight="26.0" prefWidth="266.0" promptText="Name" />
-                                <TextField alignment="TOP_CENTER" layoutX="369.0" layoutY="379.0" prefHeight="26.0" prefWidth="266.0" promptText="Email" />
-                                <TextField alignment="TOP_CENTER" layoutX="369.0" layoutY="416.0" prefHeight="26.0" prefWidth="266.0" promptText="Research interests" />
-                                <Button alignment="BASELINE_CENTER" layoutX="637.0" layoutY="344.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="92.0" text="Add Member" textAlignment="JUSTIFY" textOverrun="CLIP" />
-                                <Button layoutX="14.0" layoutY="375.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="342.0" text="Create new team" />
-                                <Button layoutX="14.0" layoutY="413.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="342.0" text="Add to a team" />
-                        <TextField alignment="TOP_CENTER" layoutX="14.0" layoutY="344.0" prefHeight="26.0" prefWidth="343.0" promptText="Team Name" />
+                                <TextField fx:id="memberNameBox" alignment="TOP_CENTER" layoutX="369.0" layoutY="343.0" prefHeight="26.0" prefWidth="266.0" promptText="Name" />
+                                <TextField fx:id="memberEamilBox" alignment="TOP_CENTER" layoutX="369.0" layoutY="379.0" prefHeight="26.0" prefWidth="266.0" promptText="Email" />
+                                <TextField fx:id="memberRIBox" alignment="TOP_CENTER" layoutX="369.0" layoutY="418.0" prefHeight="26.0" prefWidth="266.0" promptText="Research interests" />
+                                <Button fx:id="addMemberButton" alignment="BASELINE_CENTER" layoutX="637.0" layoutY="344.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="92.0" text="Add Member" textAlignment="JUSTIFY" textOverrun="CLIP" />
+                                <Button fx:id="newTeamButton" layoutX="14.0" layoutY="376.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="342.0" text="Create new team" />
+                                <Button fx:id="addToTeamButton" layoutX="14.0" layoutY="413.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="342.0" text="Add to a team" />
+                                <TextField fx:id="newTeamBox" alignment="TOP_CENTER" layoutX="14.0" layoutY="344.0" prefHeight="26.0" prefWidth="343.0" promptText="Team Name" />
                             </children></AnchorPane>
                     </content>
                 </Tab>
@@ -48,44 +48,44 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="365.0" prefWidth="660.0">
                             <children>
-                                <ListView layoutX="14.0" layoutY="32.0" prefHeight="269.0" prefWidth="347.0" />
-                                <ListView layoutX="368.0" layoutY="33.0" prefHeight="266.0" prefWidth="362.0" />
+                                <ListView fx:id="projectListView" layoutX="14.0" layoutY="32.0" prefHeight="269.0" prefWidth="347.0" />
+                                <ListView fx:id="machinesListView" layoutX="372.0" layoutY="34.0" prefHeight="266.0" prefWidth="362.0" />
                                 <Label layoutX="14.0" layoutY="9.0" text="Projects:" />
                                 <Label layoutX="369.0" layoutY="9.0" prefHeight="18.0" prefWidth="82.0" text="Machines:" />
-                                <Button layoutX="14.0" layoutY="346.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="347.0" text="Add new project" />
-                                <TextField alignment="TOP_CENTER" layoutX="14.0" layoutY="310.0" prefHeight="26.0" prefWidth="351.0" promptText="Project name" />
-                                <Button layoutX="15.0" layoutY="418.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="347.0" text="Assign Team" />
-                                <TextField alignment="TOP_CENTER" layoutX="15.0" layoutY="384.0" prefHeight="26.0" prefWidth="351.0" promptText="Team Name" />
-                                <DatePicker layoutX="380.0" layoutY="347.0" prefHeight="58.0" prefWidth="182.0" />
-                        <TextField alignment="TOP_CENTER" layoutX="568.0" layoutY="348.0" prefHeight="26.0" prefWidth="157.0" promptText="From" />
-                        <TextField alignment="TOP_CENTER" layoutX="568.0" layoutY="379.0" prefHeight="26.0" prefWidth="158.0" promptText="To" />
-                        <Button layoutX="380.0" layoutY="410.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="346.0" text="Assign Machine" />
-                        <TextField alignment="TOP_CENTER" layoutX="380.0" layoutY="310.0" prefHeight="26.0" prefWidth="231.0" promptText="new Machine name" />
-                        <Button layoutX="617.0" layoutY="310.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Add" />
+                                <Button fx:id="addNewProjectbutton" layoutX="14.0" layoutY="346.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="347.0" text="Add new project" />
+                                <TextField fx:id="newprojectNameBox" alignment="TOP_CENTER" layoutX="14.0" layoutY="310.0" prefHeight="26.0" prefWidth="351.0" promptText="Project name" />
+                                <Button fx:id="assignTeamButton" layoutX="15.0" layoutY="418.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="347.0" text="Assign Team" />
+                                <TextField fx:id="teamNameBox" alignment="TOP_CENTER" layoutX="15.0" layoutY="384.0" prefHeight="26.0" prefWidth="351.0" promptText="Team Name" />
+                                <DatePicker fx:id="mDatePicker" layoutX="380.0" layoutY="347.0" prefHeight="58.0" prefWidth="182.0" />
+                                <TextField fx:id="fromHourBox" alignment="TOP_CENTER" layoutX="569.0" layoutY="348.0" prefHeight="26.0" prefWidth="157.0" promptText="From" />
+                                <TextField fx:id="toHourBox" alignment="TOP_CENTER" layoutX="568.0" layoutY="379.0" prefHeight="26.0" prefWidth="158.0" promptText="To" />
+                                <Button fx:id="assignMToteamButton" layoutX="384.0" layoutY="414.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="340.0" text="Assign Machine" />
+                                <TextField fx:id="newMachineBox" alignment="TOP_CENTER" layoutX="380.0" layoutY="310.0" prefHeight="26.0" prefWidth="231.0" promptText="new Machine name" />
+                                <Button fx:id="addNewMachineButton" layoutX="617.0" layoutY="310.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Add" />
                             </children></AnchorPane>
                     </content>
                 </Tab>
                 <Tab fx:id="mTeamsTab" text="My teams">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="738.0">
-                     <children>
-                        <ListView layoutX="10.0" layoutY="9.0" prefHeight="441.0" prefWidth="715.0" />
-                     </children></AnchorPane>
+                            <children>
+                                <ListView fx:id="myTeamsListView" layoutX="10.0" layoutY="9.0" prefHeight="441.0" prefWidth="715.0" />
+                            </children></AnchorPane>
                     </content>
                 </Tab>
                 <Tab fx:id="mProjectsTab" text="My projects">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <ListView layoutX="7.0" layoutY="21.0" prefHeight="337.0" prefWidth="355.0" />
-                        <ListView layoutX="372.0" layoutY="20.0" prefHeight="338.0" prefWidth="351.0" />
-                        <Label layoutX="7.0" layoutY="1.0" text="Projects:" />
-                        <Label layoutX="379.0" layoutY="1.0" text="Machines:" />
-                        <DatePicker layoutX="15.0" layoutY="367.0" prefHeight="58.0" prefWidth="182.0" />
-                        <TextField alignment="TOP_CENTER" layoutX="205.0" layoutY="368.0" promptText="From" />
-                        <TextField alignment="TOP_CENTER" layoutX="205.0" layoutY="403.0" promptText="To" />
-                        <Button layoutX="378.0" layoutY="367.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="338.0" text="Reserve" />
-                     </children></AnchorPane>
+                            <children>
+                                <ListView fx:id="myProjectListView" layoutX="7.0" layoutY="21.0" prefHeight="337.0" prefWidth="355.0" />
+                                <ListView fx:id="memberMachineListView" layoutX="372.0" layoutY="20.0" prefHeight="338.0" prefWidth="351.0" />
+                                <Label layoutX="7.0" layoutY="1.0" text="Projects:" />
+                                <Label layoutX="379.0" layoutY="1.0" text="Machines:" />
+                                <DatePicker fx:id="pDatePicker" layoutX="15.0" layoutY="367.0" prefHeight="58.0" prefWidth="182.0" />
+                                <TextField fx:id="memberFromBox" alignment="TOP_CENTER" layoutX="205.0" layoutY="368.0" promptText="From" />
+                                <TextField fx:id="memberToBox" alignment="TOP_CENTER" layoutX="205.0" layoutY="403.0" promptText="To" />
+                                <Button fx:id="reserveButton" layoutX="378.0" layoutY="367.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="338.0" text="Reserve" />
+                            </children></AnchorPane>
                     </content>
                 </Tab>
                 <Tab fx:id="VisTab" text="Visualization">

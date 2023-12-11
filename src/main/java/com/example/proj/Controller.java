@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Controller {
     public List<String> userList = new ArrayList<String>();
-
     @FXML
     private TabPane mainTabPane;
 
@@ -24,31 +23,85 @@ public class Controller {
     private PasswordField PasswordBox;
     @FXML
     private Label StatusLabel;
-    @FXML
-    private ListView<String> teamsListView;
     /* End Sign-in Tab*/
 
     /* Admin-Teams Tab*/
     @FXML
     private Tab teamsTab;
-
+    @FXML
+    private ListView teamsListView;
+    @FXML
+    private TextField newTeamBox;
+    @FXML
+    private Button newTeamButton;
+    @FXML
+    private Button addToTeamButton;
+    @FXML
+    private ListView membersListView;
+    @FXML
+    private TextField memberNameBox;
+    @FXML
+    private TextField memberEmailBox;
+    @FXML
+    private TextField memberRIBox;
+    @FXML
+    private Button addMemberButton;
     /* End Admin-Teams Tab*/
 
     /* Admin-projects Tab*/
     @FXML
     private Tab projectsTab;
+    @FXML
+    private ListView projectListView;
+    @FXML
+    private TextField newprojectNameBox;
+    @FXML
+    private Button addNewProjectbutton;
+    @FXML
+    private TextField teamNameBox;
+    @FXML
+    private Button assignTeamButton;
+    @FXML
+    private ListView machinesListView;
+    @FXML
+    private TextField newMachineBox;
+    @FXML
+    private Button addNewMachineButton;
+    @FXML
+    private DatePicker mDatePicker;
+    @FXML
+    private TextField fromHourBox;
+    @FXML
+    private TextField toHourBox;
+    @FXML
+    private Button assignMToteamButton;
 
     /* End Admin-projects Tab*/
 
     /* Member-teams Tab*/
     @FXML
     private Tab mTeamsTab;
+    @FXML
+    private ListView myTeamsListView;
 
     /* End Member-Teams Tab*/
 
     /* Member-projects Tab*/
     @FXML
     private Tab mProjectsTab;
+    @FXML
+    private ListView myProjectListView;
+    @FXML
+    private DatePicker pDatePicker;
+    @FXML
+    private TextField memberFromBox;
+    @FXML
+    private TextField memberToBox;
+    @FXML
+    private ListView memberMachineListView;
+
+    @FXML
+    private Button reserveButton;
 
     /* End Member-projects Tab*/
 
@@ -82,6 +135,6 @@ public class Controller {
     }
     @FXML
     private void initialize() throws Exception{
-        userList = Utility.readFileAsArrayList("C:\\Users\\Turki\\Documents\\SWE206\\Proj\\Phase 3\\Proj\\src\\main\\java\\com\\example\\users.txt");
+        userList = Utility.readFileAsArrayList("C:\\Users\\ccm-stu\\Desktop\\ggg\\swe206-project\\src\\main\\java\\com\\example\\users.txt");
     }
 }

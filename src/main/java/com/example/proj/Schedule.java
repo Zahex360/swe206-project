@@ -1,50 +1,46 @@
 package com.example.proj;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class Schedule{
-    private ArrayList<AssignedTime> availableTimes = new ArrayList<AssignedTime>();
-    private ArrayList<AssignedTime> reservedTimes = new ArrayList<AssignedTime>();
+    private HashMap<String, ArrayList<Time>> availableTimes = new HashMap<>();
+    private HashMap<String, ArrayList<Time>> reservedTimes =  new HashMap<>();
 
 
 
     public void updateSchedule(Time time, String projectName) {
-        var rTime = reservedTimes.stream().filter(assignedTime1 -> assignedTime1.getProjectName().equals(projectName)).toList();
-        if (rTime.size() == 1){
-            rTime.get(0).addTime(time);
+        if (reservedTimes.containsKey(projectName)){
+            reservedTimes.get(projectName).add(time);
         }else{
             var tt = new ArrayList<Time>();
             tt.add(time);
-            AssignedTime assignedTime = new AssignedTime(tt, projectName);
-            reservedTimes.add(assignedTime);
+            reservedTimes.put(projectName, tt);
         }
     }
     public void setAvailableTime(Time time, String projectName){
-        var rTime = availableTimes.stream().filter(assignedTime1 -> assignedTime1.getProjectName().equals(projectName)).toList();
-        if (rTime.size() == 1){
-            rTime.get(0).addTime(time);
+        if (availableTimes.containsKey(projectName)){
+            availableTimes.get(projectName).clear();
+            availableTimes.get(projectName).add(time);
         }else{
             var tt = new ArrayList<Time>();
             tt.add(time);
-            AssignedTime assignedTime = new AssignedTime(tt, projectName);
-            availableTimes.remove(0);
-            availableTimes.add(assignedTime);
+            availableTimes.put(projectName, tt);
         }
     }
     public boolean verifyTime(Reservation reservation, Project project) {
-
-        var aTimes = availableTimes.stream().filter(assignedTime -> assignedTime.getProjectName().equals(project.getProjectName())).toList();
-        if (aTimes.size() < 1)
+        String projectName = project.getProjectName();
+        if (!availableTimes.containsKey(projectName))
             return false;
         // First Check validate of the wanted time:
-        for (Time time : aTimes.get(0).getTimes()) {
+        for (Time time : availableTimes.get(projectName)) {
             if (time.inBetween(reservation.getTime())) {
                 // Found Valid Time ---
                 // now check for conflicts
-                var rTimes =  availableTimes.stream().filter(assignedTime1 -> assignedTime1.getProjectName().equals(project.getProjectName())).toList();
-                if (rTimes.size() < 1)
+                if (!reservedTimes.containsKey(projectName))
                     return true;
-                for (Time time1 : rTimes.get(0).getTimes()) {
+                for (Time time1 : reservedTimes.get(projectName)) {
                     if (time1.checkConflict(reservation.getTime())) {
                         return false;
                     }
