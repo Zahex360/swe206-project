@@ -1,18 +1,33 @@
 package com.example.proj;
 import java.util.ArrayList;
 public class Member {
+
     private String name;
+    private String Email;
+    private String researchInterrest;
     private ArrayList<Team> AssociatedTeams;
+
+    public Member(String name, String Email, String researchInterrest ) {
+        this.name = name;
+        this.Email=Email;
+        this.researchInterrest=researchInterrest;
+        this.AssociatedTeams = new ArrayList<Team>();
+    }
 
     public Member(String name) {
         this.name = name;
-        this.AssociatedTeams = new ArrayList<Team>();
+
     }
 
     public String getName() {
         return name;
     }
 
+    public String getEmail() {
+        return Email;
+    }
+
+    public String getResearchInterrest(){return researchInterrest;}
     public void setName(String name) {
         this.name = name;
     }
