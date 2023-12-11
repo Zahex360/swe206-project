@@ -156,6 +156,17 @@ public class Controller {
                 teamsListView.getItems().add(t.getTeamTitle());
             }
 
+            for (Machine machine : Machines){
+                machinesListView.getItems().add(machine.getSpecialization());
+            }
+
+            for (Member member : Members){
+                membersListView.getItems().add(member.getName());
+            }
+
+            for (Project project : Projects){
+                projectListView.getItems().add(project.getProjectName());
+            }
 
         } else if (userList.contains(username + ":" + pass + "@Member")) {
             StatusLabel.setText("Logged in, As a member");
@@ -164,16 +175,23 @@ public class Controller {
             VisTab.setDisable(true);
             mProjectsTab.setDisable(false);
             mTeamsTab.setDisable(false);
+
             // initialize
             member = new Member(username);
             admin.assignMemberToTeam(member, Teams.get(0));
             admin.assignMemberToTeam(member, Teams.get(1));
             Teams.get(0).setProject(Projects.get(0));
             Teams.get(1).setProject(Projects.get(1));
+
             for (Team t : member.showAssociatedTeams()){
                 myTeamsListView.getItems().add(t.getTeamTitle());
                 myProjectListView.getItems().add(t.getProject().getProjectName());
             }
+
+            for (Machine m : Machines){
+                memberMachineListView.getItems().add(m.getSpecialization());
+            }
+
         }
     }
     @FXML
