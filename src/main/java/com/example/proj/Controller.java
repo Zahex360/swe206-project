@@ -220,6 +220,7 @@ public class Controller {
         String name = teamNameBox.getText();
         Team newTeam = new Team(Teams.size()+1, name);
         Teams.add(newTeam);
+        teamsListView.getItems().add(newTeam.showTeamInfo());
 
 
 

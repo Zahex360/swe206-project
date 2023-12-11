@@ -66,7 +66,7 @@ public class Team {
         return project;
     }
 
-    public void showTeamInfo() {
+    public String showTeamInfo() {
         String s= this.teamTitle+ " team: ";
 
         for(int i=0; i<members.size(); i++){
@@ -76,6 +76,7 @@ public class Team {
                 s+=members.get(i);
 
         }
+        return s;
     }
     public boolean verifyAvailability() {
         return true;
