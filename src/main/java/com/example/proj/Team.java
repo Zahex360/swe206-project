@@ -6,13 +6,13 @@ public class Team {
     private int teamNumber;
     private String teamTitle;
     private ArrayList<Member> members;
-    private ArrayList<Project> projects;
+    private Project project;
 
     public Team(int teamNumber, String teamTitle) {
         this.teamNumber = teamNumber;
         this.teamTitle = teamTitle;
         this.members = new ArrayList<>();
-        this.projects = new ArrayList<>();
+
     }
 
     
@@ -40,12 +40,12 @@ public class Team {
         this.members = members;
     }
 
-    public ArrayList<Project> getProjects() {
-        return projects;
+    public Project getProject() {
+        return project;
     }
 
-    public void setProjects(ArrayList<Project> projects) {
-        this.projects = projects;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public void addMember(Member member) {
@@ -58,10 +58,6 @@ public class Team {
         member.decreaseNumberOfAssociatedTeams(); 
     }
 
-    public void addProject(Project project) {
-        projects.add(project);
-    }
-
     public void assessSkills() { 
     }
 
@@ -69,8 +65,8 @@ public class Team {
         return true; 
     }
 
-    public Project[] showAssociatedProjects() {
-        return projects.toArray(new Project[0]);
+    public Project showAssociatedproject() {
+        return project;
     }
 
     public Machine[] showAvailableMachines() {
