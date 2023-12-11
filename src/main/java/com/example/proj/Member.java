@@ -14,6 +14,11 @@ public class Member {
         this.AssociatedTeams = new ArrayList<Team>();
     }
 
+    public Member(String name) {
+        this.name = name;
+
+    }
+
     public String getName() {
         return name;
     }
