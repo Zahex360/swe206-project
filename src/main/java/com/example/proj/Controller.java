@@ -157,7 +157,7 @@ public class Controller {
             }
 
             for (Machine machine : Machines){
-                machinesListView.getItems().add(machine.getSpecialization());
+                machinesListView.getItems().add(machine.getInfo());
             }
 
             for (Member member : Members){
@@ -189,7 +189,7 @@ public class Controller {
             }
 
             for (Machine m : Machines){
-                memberMachineListView.getItems().add(m.getSpecialization());
+                memberMachineListView.getItems().add(m.getInfo());
             }
 
         }
