@@ -89,7 +89,7 @@ public class Member {
             default:
                 return "Member is not Active";
                 
-        } //More Beautiful with Switch ^_^ 
+        } //More Beautiful with Switch ^_^ .
         
         // if(AssociatedTeams.size() == 3){
         //     System.out.println("Member is highly Active");
