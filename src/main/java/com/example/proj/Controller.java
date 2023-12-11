@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Controller {
     public List<String> userList = new ArrayList<String>();
-    public Admin admin;
+    public Admin admin = new Admin();
     public Member member;
 
     public ArrayList<Team> Teams = new ArrayList<>();
@@ -125,7 +125,7 @@ public class Controller {
         int id = Machines.size()+1;
         Machine machine = new Machine(id,newMachineBox.getText());
         Machines.add(machine);
-        machinesListView.getItems().add(machine.getInfo());
+        machinesListView.getItems().add(machine.getSpecialization());
     }
     @FXML
     public void addNewProject(ActionEvent actionEvent) {
@@ -176,7 +176,6 @@ public class Controller {
     /* End Admin-VisTab Tab*/
 
     public void userLogin(ActionEvent actionEvent) {
-        admin = new Admin();
 
         String username = EmailBox.getText();
         String pass = PasswordBox.getText();
@@ -190,7 +189,7 @@ public class Controller {
             // initialize
             admin = new Admin();
             for (Team t : Teams) {
-                teamsListView.getItems().add(t.getTeamTitle());
+                teamsListView.getItems().add(t.showTeamInfo());
             }
 
             for (Machine machine : Machines){
@@ -222,7 +221,7 @@ public class Controller {
 
             for (Team t : member.showAssociatedTeams()){
 
-                myTeamsListView.getItems().add(t.getTeamTitle());
+                myTeamsListView.getItems().add(t.showTeamInfo());
                 myProjectListView.getItems().add(t.getProject().getProjectName());
                 for (Machine m : t.getProject().getavailableMachines()){
                     memberMachineListView.getItems().add(m.getSpecialization());
@@ -244,12 +243,10 @@ public class Controller {
 
     @FXML
     private void createNewTeam(ActionEvent actionEvent){
-        String name = teamNameBox.getText();
+        String name = newTeamBox.getText();
         Team newTeam = new Team(Teams.size()+1, name);
         Teams.add(newTeam);
         teamsListView.getItems().add(newTeam.showTeamInfo());
-
-
 
     }
 
@@ -257,14 +254,30 @@ public class Controller {
     public void addNewMember(ActionEvent actionEvent) {
         Member newMember = new Member(memberNameBox.getText(), memberEmailBox.getText(), memberRIBox.getText());
         Members.add(newMember);
-        membersListView.getItems().add((Members.size()+1)+". "+newMember.getName());
+        membersListView.getItems().add(newMember.getName());
     }
 
     @FXML
     public void addMemberToTeam(ActionEvent actionEvent) {
-        String member = membersListView.getSelectionModel().getSelectedItem();
-        String team = teamsListView.getSelectionModel().getSelectedItem();
-//        teamsListView.getItems().set(teamsListView.getSelectionModel().getSelectedIndex(), )
+        String memberN = membersListView.getSelectionModel().getSelectedItem();
+        String teamN = teamsListView.getSelectionModel().getSelectedItem();
+
+        for (Member m : Members){
+            if (m.getName().equals(memberN)){
+                for(Team t: Teams){
+                   if (t.showTeamInfo().equals(teamN)){
+                       if (!m.showAssociatedTeams().contains(t)){
+                           t.addMember(m);
+                           m.addTeam(t);
+                           teamsListView.getItems().set(teamsListView.getSelectionModel().getSelectedIndex(), t.showTeamInfo());
+
+
+                           return;
+
+                       }
+                   }
+                }}
+        }
     }
 
 
@@ -289,13 +302,37 @@ public class Controller {
     @FXML
     public void visActivity(ActionEvent actionEvent) {
 
-        String mostActiveMember = admin.getMostActiveMember().getName();
-        String mostUtilizedMachine = admin.getMostUtilizedMachine().getSpecialization();
-        String mostActiveProject = admin.getMostActiveProject().getProjectInfo();
+        if(admin.getMostActiveMember() == null){
+            ShowMessageBox("No Active Member Yet!");
+            return;
+        }
+        else{
+            MAMLabel.setText(admin.getMostActiveMember().getName());
+        }
 
-        MAMLabel.setText(mostActiveMember);
-        MUMLabel.setText(mostUtilizedMachine);
-        MAPLabel.setText(mostActiveProject);
+        if(admin.getMostUtilizedMachine() == null){
+            ShowMessageBox("No Activie Machine Yet!");
+            return;
+        }
+        else{
+            MUMLabel.setText(admin.getMostUtilizedMachine().getSpecialization());
+        }
+
+        if(admin.getMostActiveProject() == null){
+            ShowMessageBox("No Active Project Yet!");
+            return;
+        }
+        else{
+            MAPLabel.setText(admin.getMostActiveProject().getProjectInfo());
+        }
+        // String mostActiveMember = admin.getMostActiveMember().getName();
+        // String mostUtilizedMachine = admin.getMostUtilizedMachine().getSpecialization();
+        // String mostActiveProject = admin.getMostActiveProject().getProjectInfo();
+
+
+        // MAMLabel.setText(mostActiveMember);
+        // MUMLabel.setText(mostUtilizedMachine);
+        // MAPLabel.setText(mostActiveProject);
 
     }
 }
