@@ -30,10 +30,6 @@ public class Member {
 
     }
 
-    public void displayErrorMessage() {
-
-    }
-
     public void getInfo() {
     }
 
@@ -41,10 +37,13 @@ public class Member {
         return true; 
     }
 
-    public void reserveMachine(Machine machine, Time time, Project project, Record record) {
+    public String reserveMachine(Machine machine, Time time, Project project, Record record) {
         Reservation reservation = new Reservation(11, time, this);
         if (machine.validateMachineTime(reservation, project)){
-
+            // Has Been Reserved
+            return "Successfully reserved.";
+        }else {
+            return "Can not be reserved.";
         }
     }
 
