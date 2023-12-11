@@ -43,7 +43,7 @@ public class Machine {
         return true; 
     }
 
-    public void validateMachineTime(Time time, Project project) {
-        
+    public void validateMachineTime(Reservation reservation, Project project) {
+
     }
 }

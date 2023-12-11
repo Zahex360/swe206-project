@@ -25,4 +25,16 @@ public class Time {
         this.endTime = endTime;
     }
 
+    public boolean checkConflict(Time other){
+        if (other != null){
+            return !(this.getStartTime() > other.getEndTime() || other.getStartTime() > this.getEndTime());
+        }
+        return false;
+    }
+    public boolean inBetween(Time other){
+        if (other != null){
+            return (this.getStartTime() > other.getEndTime() && other.getEndTime() > this.getEndTime());
+        }
+        return false;
+    }
 }
