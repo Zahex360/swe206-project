@@ -81,7 +81,7 @@ public class Team {
     }
 
     public boolean verifyAvailability() {
-        return true; 
+        return true;     
     }
 }
 
