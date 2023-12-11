@@ -41,6 +41,7 @@ public class Member {
         Reservation reservation = new Reservation(11, time, this);
         if (machine.validateMachineTime(reservation, project)){
             // Has Been Reserved
+            machine.increaseNumberOfUsages();
             return "Successfully reserved.";
         }else {
             return "Can not be reserved.";
