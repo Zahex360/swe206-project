@@ -210,6 +210,7 @@ public class Controller {
     private void createNewTeam(ActionEvent actionEvent){
         String name = teamNameBox.getText();
         Team newTeam = new Team(Teams.size()+1, name);
+        Teams.add(newTeam);
 
 
 
