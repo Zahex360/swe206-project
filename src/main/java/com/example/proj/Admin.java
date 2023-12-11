@@ -24,28 +24,26 @@ public class Admin {
             int projNum = Integer.parseInt(projectName.substring(projectName.length()-1));
             newProjNum = projNum + 1;
         }
-
         projects.add(new Project("Project-"+newProjNum));
-
     }
 
-<<<<<<< HEAD
-    public void assignMachineTimeToProject(Project project, Time time) {
-
-    }
-
-    public void assignMemberToTeam(Member member, Team team) {
-=======
     public void assignMachineTimeToProject(Machine machine,  Project project, Time time) {
-         
+        Machine[] assignedMachines = project.getReservedMachines();
+
+        for (int i = 0; i < assignedMachines.length; i++){
+            if(machine.getMachineID() == assignedMachines[i].getMachineID()){
+
+//                assignedMachines[i].getTimeTable().;
+//                Not Completed
+            }
+        }
     }
 
     public void assignMemberToTeam(Member member, Team team) {
         if(team.isAvailable() && member.isEligible())
             team.addMember(member);
         else
-            member.displayErrorMessage();   
->>>>>>> 45b1af90bf8bb31b6f91f09c067a165b850cf71c
+            member.displayErrorMessage();
     }
 
     public void notifyAcceptance() {
