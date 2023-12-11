@@ -54,6 +54,7 @@ public class Admin {
 
 
     public Project getMostActiveProject() {
+
         Project mostActiveProject = null;
 
         for (Project project : projects) {
@@ -78,15 +79,16 @@ public class Admin {
     }
     
     public Machine getMostUtilizedMachine() {
+
         Machine mostUtilizedMachine = null;
+
         for (int i = 0; i < projects.size(); i++){
             if (projects.get(i).getReservedMachines().get(i).getNumberOfUsages() > projects.get(i+1).getReservedMachines().get(i+1).getNumberOfUsages()){
                 mostUtilizedMachine = projects.get(i).getReservedMachines().get(i);
             }
         }
         return mostUtilizedMachine;
-
     }
-    
+
 }
 

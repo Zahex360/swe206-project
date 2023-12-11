@@ -295,13 +295,37 @@ public class Controller {
     @FXML
     public void visActivity(ActionEvent actionEvent) {
 
-        String mostActiveMember = admin.getMostActiveMember().getName();
-        String mostUtilizedMachine = admin.getMostUtilizedMachine().getSpecialization();
-        String mostActiveProject = admin.getMostActiveProject().getProjectInfo();
+        if(admin.getMostActiveMember() == null){
+            ShowMessageBox("No Active Member Yet!");
+            return;
+        }
+        else{
+            MAMLabel.setText(admin.getMostActiveMember().getName());
+        }
 
-        MAMLabel.setText(mostActiveMember);
-        MUMLabel.setText(mostUtilizedMachine);
-        MAPLabel.setText(mostActiveProject);
+        if(admin.getMostUtilizedMachine() == null){
+            ShowMessageBox("No Activie Machine Yet!");
+            return;
+        }
+        else{
+            MUMLabel.setText(admin.getMostUtilizedMachine().getSpecialization());
+        }
+
+        if(admin.getMostActiveProject() == null){
+            ShowMessageBox("No Active Project Yet!");
+            return;
+        }
+        else{
+            MAPLabel.setText(admin.getMostActiveProject().getProjectInfo());
+        }
+        // String mostActiveMember = admin.getMostActiveMember().getName();
+        // String mostUtilizedMachine = admin.getMostUtilizedMachine().getSpecialization();
+        // String mostActiveProject = admin.getMostActiveProject().getProjectInfo();
+
+
+        // MAMLabel.setText(mostActiveMember);
+        // MUMLabel.setText(mostUtilizedMachine);
+        // MAPLabel.setText(mostActiveProject);
 
     }
 }
