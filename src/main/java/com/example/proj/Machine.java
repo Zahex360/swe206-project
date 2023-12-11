@@ -1,0 +1,49 @@
+package com.example.proj;
+public class Machine {
+    private int machineID;
+    private String specialization;
+    private Schedule timeTable;
+
+    public Machine(int machineID, String specialization) {
+        this.machineID = machineID;
+        this.specialization = specialization;
+        this.timeTable = new Schedule(); 
+    }
+    
+    public int getMachineID() {
+        return machineID;
+    }
+
+
+    public void setMachineID(int machineID) {
+        this.machineID = machineID;
+    }
+
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
+
+    public Schedule getTimeTable() {
+        return timeTable;
+    }
+
+
+    public void setTimeTable(Schedule timeTable) {
+        this.timeTable = timeTable;
+    }
+
+    public boolean isAvailable() {
+        return true; 
+    }
+
+    public void validateMachineTime(Time time, Project project) {
+
+    }
+}
