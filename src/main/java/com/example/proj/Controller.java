@@ -149,7 +149,7 @@ public class Controller {
         for (int i = 1; i < 4; i++){
             Teams.add(new Team(i, "Team" + i));
             Members.add(new Member("Pr" + i));
-            Projects.add(new Project("Hello"));
+            Projects.add(new Project("Hello" + i));
             Machines.add(new Machine(i, "M" + i));
         }
     }
