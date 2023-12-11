@@ -29,11 +29,23 @@ public class Admin {
 
     }
 
+<<<<<<< HEAD
     public void assignMachineTimeToProject(Project project, Time time) {
 
     }
 
     public void assignMemberToTeam(Member member, Team team) {
+=======
+    public void assignMachineTimeToProject(Machine machine,  Project project, Time time) {
+         
+    }
+
+    public void assignMemberToTeam(Member member, Team team) {
+        if(team.isAvailable() && member.isEligible())
+            team.addMember(member);
+        else
+            member.displayErrorMessage();   
+>>>>>>> 45b1af90bf8bb31b6f91f09c067a165b850cf71c
     }
 
     public void notifyAcceptance() {
@@ -56,7 +68,7 @@ public class Admin {
         
     }
 
-    public void updateMachineTime(Time time) {
+    public void updateMachineTime(Machine machine, Time time) {
         
     }
 }
