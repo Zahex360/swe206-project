@@ -28,11 +28,11 @@ public class Admin {
     }
 
     public void assignMachineTimeToProject(Machine machine,  Project project, Time time) {
-        Machine[] assignedMachines = project.getReservedMachines();
+        ArrayList<Machine> assignedMachines = project.getReservedMachines();
 
-        for (int i = 0; i < assignedMachines.length; i++){
-            if(machine.getMachineID() == assignedMachines[i].getMachineID()){
-                assignedMachines[i].getTimeTable().setAvailableTime(time, project.getProjectName());
+        for (int i = 0; i < assignedMachines.size(); i++){
+            if(machine.getMachineID() == assignedMachines.get(i).getMachineID()){
+                assignedMachines.get(i).getTimeTable().setAvailableTime(time, project.getProjectName());
             }
         }
     }
