@@ -54,6 +54,26 @@ public class Admin {
     // public void showPerformance() {
         
     // }
+
+    public Member getMostActiveMember(){
+        Member mostActiveMember = members.get(0);
+        for (int i = 1; i < members.size(); i++){
+            if (members.get(i).showAssociatedTeams().size() > mostActiveMember.showAssociatedTeams().size()){
+                mostActiveMember = members.get(i);
+            }
+        }
+        return mostActiveMember;
+    }
+    
+    public Machine showMostUtilizedMachine() {
+        Machine mostUtilizedMachine = null;
+        for (int i = 0; i < projects.size(); i++){
+            if (projects.get(i).getReservedMachines().get(i).getNumberOfUsages() > projects.get(i+1).getReservedMachines().get(i+1).getNumberOfUsages()){
+                mostUtilizedMachine = projects.get(i).getReservedMachines().get(i);
+            }
+        }
+        return mostUtilizedMachine;
+    }
     
 }
 
