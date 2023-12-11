@@ -50,12 +50,12 @@ public class Team {
 
     public void addMember(Member member) {
         members.add(member);
-        member.increaseNumberOfAssociatedTeams(); 
+        
     }
     
     public void removeMember(Member member) {
         members.remove(member);
-        member.decreaseNumberOfAssociatedTeams(); 
+
     }
 
     public void assessSkills() { 

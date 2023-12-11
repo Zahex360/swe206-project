@@ -34,7 +34,7 @@ public class Member {
     }
 
     public boolean isEligible() {
-        return true; 
+        return AssociatedTeams.size() >= 3;
     }
 
     public String reserveMachine(Machine machine, Time time, Project project, Record record) {
@@ -59,9 +59,4 @@ public class Member {
         return new Machine[0]; 
     }
 
-    public void increaseNumberOfAssociatedTeams() {
-    }
-
-    public void decreaseNumberOfAssociatedTeams() {
-    }
 }

@@ -24,13 +24,19 @@ public class Admin {
             int projNum = Integer.parseInt(projectName.substring(projectName.length()-1));
             newProjNum = projNum + 1;
         }
-
         projects.add(new Project("Project-"+newProjNum));
-
     }
 
     public void assignMachineTimeToProject(Machine machine,  Project project, Time time) {
-         
+        Machine[] assignedMachines = project.getReservedMachines();
+
+        for (int i = 0; i < assignedMachines.length; i++){
+            if(machine.getMachineID() == assignedMachines[i].getMachineID()){
+
+//                assignedMachines[i].getTimeTable().;
+//                Not Completed
+            }
+        }
     }
 
     public void assignMemberToTeam(Member member, Team team) {
