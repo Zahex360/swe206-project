@@ -111,9 +111,11 @@ public class Controller {
     public void assginMachine(ActionEvent actionEvent) {
         Time time = new Time(mDatePicker.getValue(), Integer.parseInt(fromHourBox.getText()), Integer.parseInt(toHourBox.getText()));
         for (Project p : Projects){
-            if (p.getProjectName().equals(projectsTab.getText())){
+            if (p.getProjectName().equals(projectListView.getSelectionModel().getSelectedItem())){
                 for (Machine m : Machines){
-                    if (m.getSpecialization().equals(projectsTab.getText())){}
+                    if (m.getSpecialization().equals(membersListView.getSelectionModel().getSelectedItem())){
+                        admin.assignMachineTimeToProject(m, p, time);
+                    }
                 }
             }
         }
@@ -284,11 +286,16 @@ public class Controller {
     @FXML
     public void Reserve(ActionEvent actionEvent) {
 
-        String currentMachineName = memberMachineListView.getSelectionModel().getSelectedItem().split(" ")[0];
-
-        String currentProjectName = myProjectListView.getSelectionModel().getSelectedItem();
-
-//        admin.assignMachineTimeToProject(member, );
+        Time time = new Time(mDatePicker.getValue(), Integer.parseInt(fromHourBox.getText()), Integer.parseInt(toHourBox.getText()));
+        for (Project p : Projects){
+            if (p.getProjectName().equals(myProjectListView.getSelectionModel().getSelectedItem())){
+                for (Machine m : Machines){
+                    if (m.getSpecialization().equals(memberMachineListView.getSelectionModel().getSelectedItem())){
+                        member.reserveMachine(m, time, p);
+                    }
+                }
+            }
+        }
     }
 
 

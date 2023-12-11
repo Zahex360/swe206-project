@@ -53,7 +53,7 @@ public class Member {
         return AssociatedTeams.size() >= 3;
     }
 
-    public String reserveMachine(Machine machine, Time time, Project project, Record record) {
+    public String reserveMachine(Machine machine, Time time, Project project) {
         Reservation reservation = new Reservation(11, time, this);
         if (machine.validateMachineTime(reservation, project)){
             // Has Been Reserved
