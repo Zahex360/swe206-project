@@ -31,20 +31,25 @@ public class Schedule{
         }
     }
     public boolean verifyTime(Reservation reservation, Project project) {
-        var aTimes = (AssignedTime)availableTimes.stream().filter(assignedTime -> assignedTime.getProjectName().equals(project.getProjectName())).toList();
-            // First Check validate of the wanted time:
-            for (Time time : aTimes.getTimes()){
-                if (time.inBetween(reservation.getTime())){
-                    // Found Valid Time ---
-                    // now check for conflicts
-                    var rTimes = (AssignedTime)availableTimes.stream().filter(assignedTime1 -> assignedTime1.getProjectName().equals(project.getProjectName())).toArray()[0];
-                        for (Time time1 : rTimes.getTimes()){
-                            if (time1.checkConflict(reservation.getTime())){
-                                return false;
-                            }
-                        }
+
+        var aTimes = availableTimes.stream().filter(assignedTime -> assignedTime.getProjectName().equals(project.getProjectName())).toList();
+        if (aTimes.size() < 1)
+            return false;
+        // First Check validate of the wanted time:
+        for (Time time : aTimes.get(0).getTimes()) {
+            if (time.inBetween(reservation.getTime())) {
+                // Found Valid Time ---
+                // now check for conflicts
+                var rTimes =  availableTimes.stream().filter(assignedTime1 -> assignedTime1.getProjectName().equals(project.getProjectName())).toList();
+                if (rTimes.size() < 1)
+                    return true;
+                for (Time time1 : rTimes.get(0).getTimes()) {
+                    if (time1.checkConflict(reservation.getTime())) {
+                        return false;
+                    }
                 }
             }
+        }
         return true;
     }
 }

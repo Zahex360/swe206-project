@@ -47,7 +47,10 @@ public class Machine {
         if (this.timeTable.verifyTime(reservation, project)){
             // Reserve.
             this.timeTable.updateSchedule(reservation.getTime(), project.getProjectName());
+            // Update record. Here
+            // Reserved
+            return true;
         }
-return  true;
+        return false;
     }
 }
