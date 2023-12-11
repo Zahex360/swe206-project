@@ -220,11 +220,7 @@ public class Controller {
                 for (Machine m : t.getProject().getavailableMachines()){
                     memberMachineListView.getItems().add(m.getInfo());
                 }
-
             }
-
-
-
         }
     }
     @FXML
@@ -285,12 +281,38 @@ public class Controller {
 
     @FXML
     public void visActivity(ActionEvent actionEvent) {
-        String mostActiveMember = admin.getMostActiveMember().getName();
-        String mostUtilizedMachine = admin.getMostUtilizedMachine().getInfo();
-        String mostActiveProject = admin.getMostActiveProject();
 
-        MAMLabel.setText(mostActiveMember);
-        MUMLabel.setText(mostUtilizedMachine);
-        MAPLabel.setText(mostActiveProject);
+        if(admin.getMostActiveMember() == null){
+            ShowMessageBox("No Active Member Yet!");
+            return;
+        }
+        else{
+            MAMLabel.setText(admin.getMostActiveMember().getName());
+        }
+
+        if(admin.getMostUtilizedMachine() == null){
+            ShowMessageBox("No Activie Machine Yet!");
+            return;
+        }
+        else{
+            MUMLabel.setText(admin.getMostUtilizedMachine().getSpecialization());
+        }
+
+        if(admin.getMostActiveProject() == null){
+            ShowMessageBox("No Active Project Yet!");
+            return;
+        }
+        else{
+            MAPLabel.setText(admin.getMostActiveProject().getProjectInfo());
+        }
+        // String mostActiveMember = admin.getMostActiveMember().getName();
+        // String mostUtilizedMachine = admin.getMostUtilizedMachine().getSpecialization();
+        // String mostActiveProject = admin.getMostActiveProject().getProjectInfo();
+
+
+        // MAMLabel.setText(mostActiveMember);
+        // MUMLabel.setText(mostUtilizedMachine);
+        // MAPLabel.setText(mostActiveProject);
+
     }
 }

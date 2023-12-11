@@ -51,13 +51,27 @@ public class Admin {
         return "Sorry! The Number of Machines/Members Has Reached the Limit!, You Cannot Add More!";
     }
 
-    // public void showPerformance() {
-        
-    // }
+
+    public Project getMostActiveProject() {
+
+        Project mostActiveProject = null;
+
+        for (Project project : projects) {
+            mostActiveProject = projects.get(0);
+            if (mostActiveProject.getReservedMachines().size() < project.getReservedMachines().size()) {
+                mostActiveProject = project;
+            }
+        }
+
+        return mostActiveProject;
+    }
+
 
     public Member getMostActiveMember(){
-        Member mostActiveMember = members.get(0);
-        for (int i = 1; i < members.size(); i++){
+
+        Member mostActiveMember = null;
+
+        for (int i = 0; i < members.size(); i++){
             if (members.get(i).showAssociatedTeams().size() > mostActiveMember.showAssociatedTeams().size()){
                 mostActiveMember = members.get(i);
             }
@@ -65,8 +79,10 @@ public class Admin {
         return mostActiveMember;
     }
     
-    public Machine showMostUtilizedMachine() {
+    public Machine getMostUtilizedMachine() {
+
         Machine mostUtilizedMachine = null;
+
         for (int i = 0; i < projects.size(); i++){
             if (projects.get(i).getReservedMachines().get(i).getNumberOfUsages() > projects.get(i+1).getReservedMachines().get(i+1).getNumberOfUsages()){
                 mostUtilizedMachine = projects.get(i).getReservedMachines().get(i);
@@ -74,6 +90,6 @@ public class Admin {
         }
         return mostUtilizedMachine;
     }
-    
+
 }
 
