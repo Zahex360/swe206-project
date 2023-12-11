@@ -281,5 +281,7 @@ public class Controller {
 
     @FXML
     public void visActivity(ActionEvent actionEvent) {
+
+
     }
 }

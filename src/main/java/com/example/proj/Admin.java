@@ -51,9 +51,18 @@ public class Admin {
         return "Sorry! The Number of Machines/Members Has Reached the Limit!, You Cannot Add More!";
     }
 
-    // public void showPerformance() {
-        
-    // }
+    public Project showMostActiveProject() {
+        Project mostActiveProject = null;
+
+        for(Project project: projects){
+            mostActiveProject = projects.get(0);
+            if(mostActiveProject.getReservedMachines().size() < project.getReservedMachines().size()){
+                mostActiveProject = project;
+            }
+        }
+
+        return  mostActiveProject;
+    }
     
 }
 
