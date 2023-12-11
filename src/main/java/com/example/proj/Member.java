@@ -42,19 +42,9 @@ public class Member {
     }
 
     public void reserveMachine(Machine machine, Time time, Project project, Record record) {
-        machine.validateMachineTime(time, project);
+        Reservation reservation = new Reservation(11, time, this);
+        if (machine.validateMachineTime(reservation, project)){
 
-        if(schedule.verifyTime(time, project)){
-            if(machine.isAvailable()){
-            machine.getTimeTable().updateSchedule(time);
-            record.updateRecord(this, machine, time); 
-            }
-            else{
-                this.displayErrorMessage();
-            }
-        }
-        else{
-            this.displayErrorMessage();
         }
     }
 
