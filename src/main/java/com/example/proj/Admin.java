@@ -68,9 +68,7 @@ public class Admin {
 
 
     public Member getMostActiveMember(){
-
         Member mostActiveMember = null;
-
         for (int i = 0; i < members.size(); i++){
             if (members.get(i).showAssociatedTeams().size() > mostActiveMember.showAssociatedTeams().size()){
                 mostActiveMember = members.get(i);
