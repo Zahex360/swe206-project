@@ -67,13 +67,13 @@ public class Team {
     }
 
     public String showTeamInfo() {
-        String s= this.teamTitle+ " team: ";
+        String s= this.teamTitle+ " : ";
 
         for(int i=0; i<members.size(); i++){
             if(i<members.size()-1)
-                    s+=members.get(i)+", ";
+                    s = s + members.get(i).getName()+", ";
             else
-                s+=members.get(i);
+                s = s + members.get(i).getName();
 
         }
         return s;

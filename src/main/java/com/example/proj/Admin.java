@@ -41,6 +41,7 @@ public class Admin {
         if(team.isAvailable() && member.isEligible())
             team.addMember(member);
             member.addTeam(team);
+        System.out.println(member.getName() + " -> " + team.getTeamTitle());
     }
 
     public String notifyAcceptance() {
