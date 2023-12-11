@@ -62,4 +62,8 @@ public class Machine {
     public void increaseNumberOfUsages() {
         this.numberOfUsages++;
     }
+
+    public String getInfo(){
+        return this.getSpecialization() + " " + this.getMachineID();
+    }
 }
