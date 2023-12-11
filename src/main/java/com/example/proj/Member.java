@@ -71,8 +71,6 @@ public class Member {
     public ArrayList<Team> showAssociatedTeams() {
         return AssociatedTeams; 
     }
-
-
     
     public String assessActivity() {
 
