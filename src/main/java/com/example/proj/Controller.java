@@ -281,17 +281,14 @@ public class Controller {
 
     @FXML
     public void visActivity(ActionEvent actionEvent) {
-<<<<<<< HEAD
 
-
-=======
-        String mostActiveMember = admin.getMostActiveMember();
-        String mostUtilizedMachine = admin.getMostUtilizedMachine();
-        String mostActiveProject = admin.getMostActiveProject();
+        String mostActiveMember = admin.getMostActiveMember().getName();
+        String mostUtilizedMachine = admin.getMostUtilizedMachine().getSpecialization();
+        String mostActiveProject = admin.getMostActiveProject().getProjectInfo();
 
         MAMLabel.setText(mostActiveMember);
         MUMLabel.setText(mostUtilizedMachine);
         MAPLabel.setText(mostActiveProject);
->>>>>>> cec8de3d87f83f9c9b75c528d5364b7949512bb1
+
     }
 }
