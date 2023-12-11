@@ -177,7 +177,7 @@ public class Controller {
             mTeamsTab.setDisable(false);
 
             // initialize
-            member = new Member(username);
+            member = new Member(username, "", "");
             admin.assignMemberToTeam(member, Teams.get(0));
             admin.assignMemberToTeam(member, Teams.get(1));
             Teams.get(0).setProject(Projects.get(0));
@@ -199,7 +199,7 @@ public class Controller {
         userList = Utility.readFileAsArrayList(System.getProperty("user.dir") +"\\src\\main\\java\\com\\example\\proj\\users.txt");
         for (int i = 1; i < 4; i++){
             Teams.add(new Team(i, "Team" + i));
-            Members.add(new Member("Pr" + i));
+            Members.add(new Member("Hello" + i,"user"+ i+"@hotmail.com", "RI"+i));
             Projects.add(new Project("Hello" + i));
             Machines.add(new Machine(i, "M" + i));
         }
@@ -215,14 +215,18 @@ public class Controller {
 
     @FXML
     public void addNewMember(ActionEvent actionEvent) {
-        membersListView.getItems().add(memberNameBox.getText());
+        Member newMember = new Member(memberNameBox.getText(), memberEmailBox.getText(), memberRIBox.getText());
+        Members.add(newMember);
+        membersListView.getItems().add((Members.size()+1)+". "+newMember.getName());
     }
 
     @FXML
     public void addMemberToTeam(ActionEvent actionEvent) {
         String member = membersListView.getSelectionModel().getSelectedItem();
         String team = teamsListView.getSelectionModel().getSelectedItem();
+//        teamsListView.getItems().set(teamsListView.getSelectionModel().getSelectedIndex(), )
     }
+
 
     @FXML
     public void Reserve(ActionEvent actionEvent) {
