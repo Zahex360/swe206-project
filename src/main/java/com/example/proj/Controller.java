@@ -196,11 +196,7 @@ public class Controller {
                 for (Machine m : t.getProject().getavailableMachines()){
                     memberMachineListView.getItems().add(m.getInfo());
                 }
-
             }
-
-
-
         }
     }
     @FXML
