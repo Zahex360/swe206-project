@@ -17,6 +17,6 @@ public class Record {
     }
 
     public void updateRecord(Member member, Machine machine, Time time) {
-
+        
     }
 }

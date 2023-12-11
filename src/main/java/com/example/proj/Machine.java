@@ -44,6 +44,6 @@ public class Machine {
     }
 
     public void validateMachineTime(Time time, Project project) {
-
+        
     }
 }
