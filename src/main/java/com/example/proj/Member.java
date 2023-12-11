@@ -67,10 +67,6 @@ public class Member {
     public ArrayList<Team> showAssociatedTeams() {
         return AssociatedTeams; 
     }
-
-    public Machine[] showAvailableMachines() {
-        return new Machine[0]; 
-    }
     
     public void assessActivity() {
         if(AssociatedTeams.size() == 3){

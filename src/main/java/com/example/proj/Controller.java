@@ -89,13 +89,32 @@ public class Controller {
     @FXML
     public void assignTeam(ActionEvent actionEvent) {
         String name = teamNameBox.getText();
+        Project project = new Project("-1@DEV_USE");
+        for (Project p : Projects){
+            if (p.getProjectName().equals(projectsTab.getText())){
+                project = p;
+                break;
+            }
+        }
+       if (project.getProjectName().equals("-1@DEV_USE")){
+           ShowMessageBox("Make sure that you are selecting a project.");
+       }
+
+        for (Team t : Teams){
+            if (t.getTeamTitle().equals(name)){
+                t.setProject(project);
+            }
+        }
+        ShowMessageBox("Not a valid team name.");
     }
     @FXML
     public void assginMachine(ActionEvent actionEvent) {
+        mDatePicker.getValue()
     }
 
     @FXML
     public void addMachine(ActionEvent actionEvent) {
+
     }
     @FXML
     public void addNewProject(ActionEvent actionEvent) {
