@@ -39,11 +39,12 @@ public class Schedule {
                 // Found Valid Time ---
                 // now check for conflicts
 
-                if (!reservedTimes.containsKey(projectName))
-                    return true;
-                for (Time time1 : reservedTimes.get(projectName)) {
-                    if (time1.checkConflict(reservation.getTime())) {
-                        return false;
+                for (Map.Entry<String, ArrayList<Time>> entry : reservedTimes.entrySet()) {
+                    ArrayList<Time> rTime = entry.getValue();
+                    for (Time time1 : rTime) {
+                        if (time1.checkConflict(reservation.getTime())) {
+                            return false;
+                        }
                     }
                 }
                 return true;
