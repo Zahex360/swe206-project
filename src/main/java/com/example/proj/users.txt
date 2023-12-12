@@ -1,2 +1,0 @@
-Turki:123@Admin
-Test:1234@Member
